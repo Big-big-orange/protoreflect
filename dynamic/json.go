@@ -383,7 +383,13 @@ func marshalKnownFieldValueJSON(b *indentBuffer, fd *desc.FieldDescriptor, v int
 	rv := reflect.ValueOf(v)
 	switch rv.Kind() {
 	case reflect.Int64:
-		return writeJsonString(b, strconv.FormatInt(rv.Int(), 10))
+		value := rv.Int()
+		// if value in [-2^53+1, 2^53-1], use as integer
+		if value > -9007199254740992 && value < 9007199254740992 {
+			_, err := b.WriteString(strconv.FormatInt(value, 10))
+			return err
+		}
+		return writeJsonString(b, strconv.FormatInt(value, 10))
 	case reflect.Int32:
 		ed := fd.GetEnumType()
 		if !opts.EnumsAsInts && ed != nil {
@@ -400,7 +406,13 @@ func marshalKnownFieldValueJSON(b *indentBuffer, fd *desc.FieldDescriptor, v int
 			return err
 		}
 	case reflect.Uint64:
-		return writeJsonString(b, strconv.FormatUint(rv.Uint(), 10))
+		value := rv.Uint()
+		//if value in [0, 2^53-1], use as integer
+		if value < 9007199254740992 {
+			_, err := b.WriteString(strconv.FormatUint(value, 10))
+			return err
+		}
+		return writeJsonString(b, strconv.FormatUint(value, 10))
 	case reflect.Uint32:
 		_, err := b.WriteString(strconv.FormatUint(rv.Uint(), 10))
 		return err
