@@ -8,8 +8,8 @@ import (
 	"google.golang.org/protobuf/proto"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/jhump/protoreflect/desc"
-	"github.com/jhump/protoreflect/dynamic"
+	"github.com/Big-big-orange/protoreflect/desc"
+	"github.com/Big-big-orange/protoreflect/dynamic"
 )
 
 // Builder is the core interface implemented by all descriptor builders. It

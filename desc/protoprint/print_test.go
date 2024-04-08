@@ -13,10 +13,10 @@ import (
 	"google.golang.org/protobuf/reflect/protoregistry"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/jhump/protoreflect/desc"
-	"github.com/jhump/protoreflect/desc/protoparse"
-	_ "github.com/jhump/protoreflect/internal/testprotos"
-	"github.com/jhump/protoreflect/internal/testutil"
+	"github.com/Big-big-orange/protoreflect/desc"
+	"github.com/Big-big-orange/protoreflect/desc/protoparse"
+	_ "github.com/Big-big-orange/protoreflect/internal/testprotos"
+	"github.com/Big-big-orange/protoreflect/internal/testutil"
 )
 
 const (

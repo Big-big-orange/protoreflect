@@ -474,7 +474,7 @@ message Another {
   };
 }
 
-option go_package = "github.com/jhump/protoreflect/internal/testprotos";
+option go_package = "github.com/Big-big-orange/protoreflect/internal/testprotos";
 
 import "google/protobuf/descriptor.proto";
 

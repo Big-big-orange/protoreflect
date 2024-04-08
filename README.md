@@ -1,6 +1,6 @@
 # Protocol Buffer and gRPC Reflection
 [![Build Status](https://circleci.com/gh/jhump/protoreflect/tree/main.svg?style=svg)](https://circleci.com/gh/jhump/protoreflect/tree/main)
-[![Go Report Card](https://goreportcard.com/badge/github.com/jhump/protoreflect)](https://goreportcard.com/report/github.com/jhump/protoreflect)
+[![Go Report Card](https://goreportcard.com/badge/github.com/Big-big-orange/protoreflect)](https://goreportcard.com/report/github.com/Big-big-orange/protoreflect)
 
 This repo provides reflection APIs for [protocol buffers](https://developers.google.com/protocol-buffers/) (also known as "protobufs" for short)
 and [gRPC](https://grpc.io/). The core of reflection in protobufs is the
@@ -9,7 +9,7 @@ A descriptor is itself a protobuf message that describes a `.proto` source file 
 therein. So a collection of descriptors can describe an entire schema of protobuf types, including
 RPC services.
 
-[![GoDoc](https://godoc.org/github.com/jhump/protoreflect?status.svg)](https://godoc.org/github.com/jhump/protoreflect)
+[![GoDoc](https://godoc.org/github.com/Big-big-orange/protoreflect?status.svg)](https://godoc.org/github.com/Big-big-orange/protoreflect)
 
 ----
 
@@ -18,9 +18,9 @@ RPC services.
 This repo was originally built to work with the "V1" API of the Protobuf runtime for Go: `github.com/golang/protobuf`.
 
 Since the creation of this repo, a new runtime for Go has been release, a "V2" of the API in `google.golang.org/protobuf`. This new API now includes support for functionality that this repo implements:
-  * _Descriptors_: This repo provides `github.com/jhump/protoreflect/desc`. The new API now provides alternative types in [`google.golang.org/protobuf/reflect/protoreflect`](https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect). It also provides ways to access descriptors for statically linked types in [`google.golang.org/protobuf/reflect/protoregistry`](https://pkg.go.dev/google.golang.org/protobuf/reflect/protoregistry) and the ability to convert between these descriptor types and their "poorer cousins", [descriptor protos](https://pkg.go.dev/google.golang.org/protobuf/types/descriptorpb), in [`google.golang.org/protobuf/reflect/protodesc`](https://pkg.go.dev/google.golang.org/protobuf/reflect/protodesc)
-  * _Dynamic Messages_: This repo provides `github.com/jhump/protoreflect/dynamic`. The new API now provides an alternative in [`google.golang.org/protobuf/types/dynamicpb`](https://pkg.go.dev/google.golang.org/protobuf/types/dynamicpb).
-  * _Binary Wire Format_: This repo provides `github.com/jhump/protoreflect/codec`. The new API now provides an alternative in [`google.golang.org/protobuf/encoding/protowire`](https://pkg.go.dev/google.golang.org/protobuf/encoding/protowire).
+  * _Descriptors_: This repo provides `github.com/Big-big-orange/protoreflect/desc`. The new API now provides alternative types in [`google.golang.org/protobuf/reflect/protoreflect`](https://pkg.go.dev/google.golang.org/protobuf/reflect/protoreflect). It also provides ways to access descriptors for statically linked types in [`google.golang.org/protobuf/reflect/protoregistry`](https://pkg.go.dev/google.golang.org/protobuf/reflect/protoregistry) and the ability to convert between these descriptor types and their "poorer cousins", [descriptor protos](https://pkg.go.dev/google.golang.org/protobuf/types/descriptorpb), in [`google.golang.org/protobuf/reflect/protodesc`](https://pkg.go.dev/google.golang.org/protobuf/reflect/protodesc)
+  * _Dynamic Messages_: This repo provides `github.com/Big-big-orange/protoreflect/dynamic`. The new API now provides an alternative in [`google.golang.org/protobuf/types/dynamicpb`](https://pkg.go.dev/google.golang.org/protobuf/types/dynamicpb).
+  * _Binary Wire Format_: This repo provides `github.com/Big-big-orange/protoreflect/codec`. The new API now provides an alternative in [`google.golang.org/protobuf/encoding/protowire`](https://pkg.go.dev/google.golang.org/protobuf/encoding/protowire).
 
 Most protobuf users have likely upgraded to that newer runtime and thus encounter some friction using this repo. It is now recommended to use the above packages in the V2 Protobuf API _instead of_ using the corresponding packages in this repo. But that still leaves a lot of functionality in this repo, such as the `desc/builder`, `desc/protoparse`, `desc/protoprint`, `dynamic/grpcdynamic`, `dynamic/msgregistry`, and `grpcreflect` packages herein. And all of these packages build on the core `desc.Descriptor` types in this repo. As of v1.15.0, you can convert between this repo's `desc.Descriptor` types and the V2 API's `protoreflect.Descriptor` types using `Wrap` functions in the `desc` package and `Unwrap` methods on the `desc.Descriptor` types. That allows easier interop between these remaining useful packages and new V2 API descriptor implementations.
 
@@ -32,7 +32,7 @@ Later this year, we expect to cut a v2 of this whole repo. A lot of what's in th
 ## Descriptors: The Language Model of Protocol Buffers
 
 ```go
-import "github.com/jhump/protoreflect/desc"
+import "github.com/Big-big-orange/protoreflect/desc"
 ```
 
 The `desc` package herein introduces a `Descriptor` interface and implementations of it that
@@ -50,10 +50,10 @@ you to easily extract those embedded descriptors.
 Descriptors can also be acquired directly from `.proto` source files (using the `protoparse` sub-package)
 or by programmatically constructing them (using the `builder` sub-package).
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/desc)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/desc)*
 
 ```go
-import "github.com/jhump/protoreflect/desc/protoparse"
+import "github.com/Big-big-orange/protoreflect/desc/protoparse"
 ```
 
 The `protoparse` package allows for parsing of `.proto` source files into rich descriptors. Without
@@ -61,20 +61,20 @@ this package, you must invoke `protoc` to either generate a file descriptor set 
 Go code (which has descriptor information embedded in it). This package allows reading the source
 directly without having to invoke `protoc`.
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/desc/protoparse)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/desc/protoparse)*
 
 ```go
-import "github.com/jhump/protoreflect/desc/protoprint"
+import "github.com/Big-big-orange/protoreflect/desc/protoprint"
 ```
 
 The `protoprint` package allows for printing of descriptors to `.proto` source files. This is
 effectively the inverse of the `protoparse` package. Combined with the `builder` package, this
 is a useful tool for programmatically generating protocol buffer sources.
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/desc/protoprint)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/desc/protoprint)*
 
 ```go
-import "github.com/jhump/protoreflect/desc/builder"
+import "github.com/Big-big-orange/protoreflect/desc/builder"
 ```
 
 The `builder` package allows for programmatic construction of rich descriptors. Descriptors can
@@ -86,13 +86,13 @@ So this package provides generous API to greatly simplify that task. It also all
 rich descriptors into builders, which means you can programmatically modify/tweak existing
 descriptors.
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/desc/builder)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/desc/builder)*
 
 ----
 ## Dynamic Messages and Stubs
 
 ```go
-import "github.com/jhump/protoreflect/dynamic"
+import "github.com/Big-big-orange/protoreflect/dynamic"
 ```
 
 The `dynamic` package provides a dynamic message implementation. It implements `proto.Message` but
@@ -102,22 +102,22 @@ in Go code for every kind of message. This is particularly useful for general-pu
 need to operate on arbitrary protocol buffer schemas. This is made possible by having the tools load
 descriptors at runtime.
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/dynamic)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/dynamic)*
 
 ```go
-import "github.com/jhump/protoreflect/dynamic/grpcdynamic"
+import "github.com/Big-big-orange/protoreflect/dynamic/grpcdynamic"
 ```
 
 There is also sub-package named `grpcdynamic`, which provides a dynamic stub implementation. The stub can
 be used to issue RPC methods using method descriptors instead of generated client interfaces.
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/dynamic/grpcdynamic)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/dynamic/grpcdynamic)*
 
 ----
 ## gRPC Server Reflection
 
 ```go
-import "github.com/jhump/protoreflect/grpcreflect"
+import "github.com/Big-big-orange/protoreflect/grpcreflect"
 ```
 
 The `grpcreflect` package provides an easy-to-use client for the
@@ -127,4 +127,4 @@ making it much easier to query for and work with the schemas of remote services.
 It also provides some helper methods for querying for rich service descriptors for the
 services registered in a gRPC server.
 
-*[Read more ≫](https://godoc.org/github.com/jhump/protoreflect/grpcreflect)*
+*[Read more ≫](https://godoc.org/github.com/Big-big-orange/protoreflect/grpcreflect)*

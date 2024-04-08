@@ -17,9 +17,9 @@ import (
 	"github.com/golang/protobuf/proto"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/jhump/protoreflect/desc"
-	"github.com/jhump/protoreflect/internal/testprotos"
-	"github.com/jhump/protoreflect/internal/testutil"
+	"github.com/Big-big-orange/protoreflect/desc"
+	"github.com/Big-big-orange/protoreflect/internal/testprotos"
+	"github.com/Big-big-orange/protoreflect/internal/testutil"
 )
 
 func TestEmptyParse(t *testing.T) {

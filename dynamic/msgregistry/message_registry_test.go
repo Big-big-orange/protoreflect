@@ -19,11 +19,11 @@ import (
 	"google.golang.org/protobuf/types/known/typepb"
 	"google.golang.org/protobuf/types/known/wrapperspb"
 
-	"github.com/jhump/protoreflect/desc"
-	"github.com/jhump/protoreflect/desc/protoparse"
-	"github.com/jhump/protoreflect/dynamic"
-	"github.com/jhump/protoreflect/internal/testprotos"
-	"github.com/jhump/protoreflect/internal/testutil"
+	"github.com/Big-big-orange/protoreflect/desc"
+	"github.com/Big-big-orange/protoreflect/desc/protoparse"
+	"github.com/Big-big-orange/protoreflect/dynamic"
+	"github.com/Big-big-orange/protoreflect/internal/testprotos"
+	"github.com/Big-big-orange/protoreflect/internal/testutil"
 )
 
 func TestMessageRegistry_LookupTypes(t *testing.T) {

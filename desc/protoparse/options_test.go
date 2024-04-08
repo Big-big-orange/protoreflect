@@ -9,7 +9,7 @@ import (
 
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/jhump/protoreflect/internal/testutil"
+	"github.com/Big-big-orange/protoreflect/internal/testutil"
 )
 
 type ident string

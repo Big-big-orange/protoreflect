@@ -17,8 +17,8 @@ import (
 	"github.com/golang/protobuf/proto"
 	"google.golang.org/protobuf/types/descriptorpb"
 
-	"github.com/jhump/protoreflect/codec"
-	"github.com/jhump/protoreflect/desc"
+	"github.com/Big-big-orange/protoreflect/codec"
+	"github.com/Big-big-orange/protoreflect/desc"
 )
 
 // MarshalText serializes this message to bytes in the standard text format,

@@ -5,8 +5,8 @@ import (
 
 	"google.golang.org/grpc"
 
-	testprotosgrpc "github.com/jhump/protoreflect/internal/testprotos/grpc"
-	"github.com/jhump/protoreflect/internal/testutil"
+	testprotosgrpc "github.com/Big-big-orange/protoreflect/internal/testprotos/grpc"
+	"github.com/Big-big-orange/protoreflect/internal/testutil"
 )
 
 type testService struct {

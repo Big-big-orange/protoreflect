@@ -3,7 +3,7 @@
 
 package grpc
 
-import "github.com/jhump/protoreflect/desc/sourceinfo"
+import "github.com/Big-big-orange/protoreflect/desc/sourceinfo"
 
 func init() {
 	srcInfo := []byte{

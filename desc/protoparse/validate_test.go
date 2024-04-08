@@ -3,7 +3,7 @@ package protoparse
 import (
 	"testing"
 
-	"github.com/jhump/protoreflect/internal/testutil"
+	"github.com/Big-big-orange/protoreflect/internal/testutil"
 )
 
 func TestBasicValidation(t *testing.T) {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/bufbuild/protocompile/ast"
 
-	ast2 "github.com/jhump/protoreflect/desc/protoparse/ast"
+	ast2 "github.com/Big-big-orange/protoreflect/desc/protoparse/ast"
 )
 
 func convertAST(file *ast.FileNode) *ast2.FileNode {
