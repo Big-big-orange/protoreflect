@@ -1,4 +1,4 @@
-module github.com/jhump/protoreflect
+module github.com/Big-big-orange/protoreflect
 
 go 1.18
 
